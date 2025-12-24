@@ -1,17 +1,22 @@
-import React from "react";
+const SkillBar = ({ name, score }) => {
+  let color = "#22c55e";
+  if (score < 7 && score >= 5.5) color = "#f59e0b"; 
+  if (score < 5.5) color = "#ef4444"; 
 
-export default function SkillBar({ skills = [] }) {
   return (
-    <section>
-      <h2>Skills</h2>
-      {skills.map(({ name, level }) => (
-        <div key={name} style={{ marginBottom: 8 }}>
-          <div>{name}</div>
-          <div style={{ background: "#eee", height: 8, borderRadius: 4 }}>
-            <div style={{ width: `${level * 100}%`, height: "100%", background: "#4caf50", borderRadius: 4 }} />
-          </div>
-        </div>
-      ))}
-    </section>
+    <div className="skill">
+      <div className="skill-header">
+        <span>{name}</span>
+        <span className="score-text">{score}/9</span>
+      </div>
+      <div className="bar">
+        <div
+          className="fill"
+          style={{ width: `${(score / 9) * 100}%`, backgroundColor: color }}
+        />
+      </div>
+    </div>
   );
-}
+};
+
+export default SkillBar;

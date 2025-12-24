@@ -1,16 +1,33 @@
-import React from "react";
+import { useState } from "react";
 import reportData from "./data/reportData";
-import SkillBar from "./components/SkillBar";
-import Feedback from "./components/Feedback";
+import Header from "./components/Header";
+import LanguageSelector from "./components/LanguageSelector";
 import ScoreSummary from "./components/ScoreSummary";
+import DescriptiveFeedback from "./components/DescriptiveFeedback";
+import "./styles.css";
 
-export default function App() {
+function App() {
+  const [selectedLang, setSelectedLang] = useState("english");
+
+  const assessment = reportData.assessments[selectedLang];
+  const languages = Object.entries(reportData.assessments).map(
+    ([key, value]) => ({ key, label: value.label })
+  );
+
   return (
-    <main>
-      <h1>Student Report</h1>
-      <ScoreSummary scores={reportData.scores} />
-      <SkillBar skills={reportData.skills} />
-      <Feedback comments={reportData.feedback} />
-    </main>
+    <div className="container">
+      <Header name={reportData.studentName} date={reportData.testDate} />
+
+      <LanguageSelector
+        languages={languages}
+        selected={selectedLang}
+        onChange={setSelectedLang}
+      />
+
+      <ScoreSummary assessment={assessment} />
+      <DescriptiveFeedback assessment={assessment} />
+    </div>
   );
 }
+
+export default App;

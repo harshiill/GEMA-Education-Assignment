@@ -1,9 +1,258 @@
-:root {
-  font-family: Arial, sans-serif;
+/* =====================
+   GLOBAL
+===================== */
+* {
+  box-sizing: border-box;
 }
 
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 24px;
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+  background: #f3f6fb;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* =====================
+   MAIN CONTAINER
+===================== */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 36px 42px;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   HEADER
+===================== */
+.header {
+  margin-bottom: 32px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 26px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #2563eb;
+}
+
+/* Header Info */
+.header-info h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.header-info h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 4px;
+}
+
+.header-info p {
+  font-size: 14px;
+  color: #6b7280;
+}
+/* =====================
+   LANGUAGE TABS
+===================== */
+.language-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0 36px;
+  flex-wrap: wrap;
+}
+
+.lang-tab {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #374151;
+}
+
+.lang-tab:hover {
+  background: #f3f4f6;
+}
+
+.lang-tab.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+
+
+/* =====================
+   LANGUAGE SELECT
+===================== */
+select {
+  margin: 20px 0 32px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* =====================
+   SUMMARY SECTION
+===================== */
+.summary-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.overall {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 10px rgba(255,255,255,0.15);
+}
+
+/* =====================
+   SKILL BARS
+===================== */
+.skill {
+  margin-bottom: 22px;
+  transition: transform 0.2s ease;
+}
+
+.skill:hover {
+  transform: translateX(4px);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.score-text {
+  color: #6b7280;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s ease, background-color 0.4s ease;
+}
+
+/* =====================
+   FEEDBACK
+===================== */
+.feedback {
+  margin-top: 52px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 32px;
+}
+
+.feedback h3 {
+  font-size: 20px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.feedback strong {
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.feedback p {
+  margin-top: 6px;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px;
+    padding: 28px;
+  }
+
+  .summary-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .overall {
+    margin: 0 auto 24px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.company-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.3px;
 }

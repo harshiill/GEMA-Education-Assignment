@@ -1,16 +1,16 @@
-import React from "react";
+import SkillBar from "./SkillBar";
 
-export default function ScoreSummary({ scores = [] }) {
+const ScoreSummary = ({ assessment }) => {
   return (
-    <section>
-      <h2>Scores</h2>
-      <ul>
-        {scores.map(({ subject, score }) => (
-          <li key={subject}>
-            {subject}: {score}
-          </li>
-        ))}
-      </ul>
-    </section>
+    <div>
+      <h3>Summary of Scores ({assessment.label})</h3>
+      <div className="overall">{assessment.overallScore} / 9</div>
+
+      {assessment.skills.map((skill, index) => (
+        <SkillBar key={index} name={skill.name} score={skill.score} />
+      ))}
+    </div>
   );
-}
+};
+
+export default ScoreSummary;

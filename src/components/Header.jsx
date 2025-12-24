@@ -1,9 +1,22 @@
 const Header = ({ name, date }) => {
   return (
     <div className="header">
-      <h1>Speechace Speaking Tests Report</h1>
-      <h2>{name}</h2>
-      <p>{date}</p>
+      <div className="header-top">
+        <div className="logo">
+          <img
+            src="/logo.jpeg"
+            alt="Company Logo"
+            className="company-logo"
+          />
+          <span className="logo-text">GEMA</span>
+        </div>
+      </div>
+
+      <div className="header-info">
+        <h1>Speaking Assessment Report</h1>
+        <h2>{name}</h2>
+        <p>Test Date: {date}</p>
+      </div>
     </div>
   );
 };
